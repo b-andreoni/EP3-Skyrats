@@ -10,32 +10,22 @@ private:
     int cargaTotal; 
 
 public:
-   void Bateria( int cargaTotal) {
-   }
-    /*~Bateria(); */
+    Bateria(int cargaTotal);
 
-void setCargaAtual(int carga) {
-        cargaAtual = carga;
-    }
+    Bateria();
 
-    int getCargaAtual() {
-        return cargaAtual;
-    }
+    void setCargaAtual(int carga);
 
-    void setCargaTotal(int carga) {
-        cargaTotal = carga;
-    }
+    int getCargaAtual();
 
-    int getCargaTotal() {
-        return cargaTotal;
-    }
+    void setCargaTotal(int carga);
 
-    float Porcentagem() {
-        return (float) (cargaAtual) / cargaTotal * 100.0;
-    }
+    int getCargaTotal();
 
-    void Carregar() {
-        cargaAtual = cargaTotal;
-    }
+    float Porcentagem();
+
+    void Carregar();
 };
+
+#endif
 

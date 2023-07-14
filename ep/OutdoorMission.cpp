@@ -1,4 +1,8 @@
-#include "classes.h"
+#include "Bateria.h"
+#include "Drone.h"
+#include "Outdoor.h"
+using namespace std;
+#include <iostream>
 
 int main(){
 
@@ -19,7 +23,8 @@ int main(){
     int mapearTotal = 4;
     Bateria bateria(2000);
     Outdoor droneOutdoor(100, 50, bateria);
-    droneOutdoor.SetPosicao(10, 10);
+    int pos[2] = {10, 10};
+    droneOutdoor.setPosicao(pos);
 
     bool continuar = true;
     string decisao;
@@ -30,7 +35,8 @@ int main(){
     cout << "Bem vindo ao desafio outdoor. Seu objetivo é alcançar todos os pontos" << endl;
     cout << "e mapear a área. Lembre-se: o drone só poderá carregar sua bateria na origem." << endl;
 
-
+    cout << droneOutdoor.getPosicao()[0] << endl;
+    cout << droneOutdoor.getPosicao()[1] << endl;
     while(continuar){
 
         for(int i = 0; i < (end(pontosMapear) - begin(pontosMapear)); i++){
@@ -39,7 +45,7 @@ int main(){
 
         matriz[(int)linhas/2][(int)colunas/2] = 'H';
 
-        matriz[droneOutdoor.GetPosicaoX()][droneOutdoor.GetPosicaoY()] = 'D';
+        matriz[droneOutdoor.getPosicao()[0]][droneOutdoor.getPosicao()[1]] = 'D';
 
         for (int i = 0; i < linhas; i++){
             for (int j = 0; j < colunas; j++){
@@ -97,8 +103,8 @@ int main(){
         cin >> y;
         cout << endl;
 
-        xAnterior = droneOutdoor.GetPosicaoX();
-        yAnterior = droneOutdoor.GetPosicaoY();
+        xAnterior = droneOutdoor.getPosicao()[0];
+        yAnterior = droneOutdoor.getPosicao()[1];
         if(droneOutdoor.Voar(y, x)){
             matriz[xAnterior][yAnterior] = '-';
             cout << "O drone voou para: (" << x << "," << y << ")" << endl;
@@ -111,13 +117,13 @@ int main(){
 
         case 4:
 
-        if(droneOutdoor.Mapear()){
-            if(droneOutdoor.GetPosicaoX() == linhas/2 and droneOutdoor.GetPosicaoY() == colunas/2 and !droneOutdoor.GetDecolado()){
+        if(droneOutdoor.mapear()){
+            if(droneOutdoor.getPosicao()[0] == linhas/2 and droneOutdoor.getPosicao()[1] == colunas/2 and !droneOutdoor.getDecolado()){
                 break;
             }
             for(int i = 0; i < (end(pontosMapear) - begin(pontosMapear)); i++){
 
-                if(droneOutdoor.GetPosicaoX() == pontosMapear[i][0] and droneOutdoor.GetPosicaoY() == pontosMapear[i][1]){
+                if(droneOutdoor.getPosicao()[0] == pontosMapear[i][0] and droneOutdoor.getPosicao()[1] == pontosMapear[i][1]){
                     mapearAtual++;
                     cout << "Áreas mapeadas:" << mapearAtual << "/" << mapearTotal << endl;
                     if (mapearAtual == mapearTotal){
@@ -138,7 +144,7 @@ int main(){
         break;
 
         case 6:
-        if(droneOutdoor.GetPosicaoX() == linhas/2 and droneOutdoor.GetPosicaoY() == colunas/2 and !droneOutdoor.GetDecolado()){
+        if(droneOutdoor.getPosicao()[0] == linhas/2 and droneOutdoor.getPosicao()[1] == colunas/2 and !droneOutdoor.getDecolado()){
             droneOutdoor.bateria.Carregar();
             droneOutdoor.bateria.Porcentagem();
             cout << "Bateria carregada!" << endl;

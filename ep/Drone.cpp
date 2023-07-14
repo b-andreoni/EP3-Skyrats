@@ -1,8 +1,10 @@
 #include "Drone.h"
 #include <math.h>
 
-Drone::Drone()
-{
+using namespace std;
+#include <iostream>
+
+Drone::Drone(){
 }
 
 Drone::~Drone()
@@ -24,8 +26,10 @@ void Drone::setDecolado(bool decolado){
 int* Drone::getPosicao(){
     return posicao;
 }
-void Drone::setPosicao(int posicao[2]){
-    this->posicao[2] = posicao[2];
+void Drone::setPosicao(int *posicao){
+    posicao = posicao;
+    cout << posicao[0] << endl;
+    cout << posicao[1] << endl;
 }
 
 bool Drone::Takeoff(){
