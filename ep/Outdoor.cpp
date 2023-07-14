@@ -15,9 +15,9 @@ Outdoor::~Outdoor()
 }
 
 bool Outdoor::mapear () {
-    if (Drone::getDecolado() && Drone::bateria >= this->carga_mapear) {
+    if (Drone::getDecolado() && Drone::bateria.getCargaAtual() >= this->carga_mapear) {
         cout << "Mapeamento concluído!" << endl;
-        Drone::bateria -= carga_mapear;
+        Drone::bateria.setCargaAtual(Drone::bateria.getCargaAtual() - carga_mapear);
         return true;
     }
 
