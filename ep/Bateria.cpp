@@ -8,25 +8,25 @@ Bateria::Bateria() {}
 
 
 void Bateria::setCargaAtual(int carga) {
-    cargaAtual = carga;
+    this->cargaAtual = carga;
 }
 
 int Bateria::getCargaAtual() {
-    return cargaAtual;
+    return this->cargaAtual;
 }
 
 void Bateria::setCargaTotal(int carga) {
-    cargaTotal = carga;
+    this->cargaTotal = carga;
 }
 
 int Bateria::getCargaTotal() {
-    return cargaTotal;
+    return this->cargaTotal;
 }
 
 float Bateria::Porcentagem() {
-    return (float) (cargaAtual) / cargaTotal * 100.0;
+    return (float) (this->cargaAtual / this->cargaTotal) * 100.0;
 }
 
 void Bateria::Carregar() {
-    cargaAtual = cargaTotal;
+    this->cargaAtual = this->cargaTotal;
 }

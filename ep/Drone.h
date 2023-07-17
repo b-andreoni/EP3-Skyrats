@@ -24,7 +24,7 @@ public:
     bool Pousar();
     bool Voar (int x, int y);
 private:
-    int posicao[2];
+    int* posicao;
     float eficiencia;
     bool decolado;
 

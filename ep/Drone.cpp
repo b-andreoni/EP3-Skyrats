@@ -27,9 +27,9 @@ int* Drone::getPosicao(){
     return posicao;
 }
 void Drone::setPosicao(int *posicao){
-    posicao = posicao;
-    cout << posicao[0] << endl;
-    cout << posicao[1] << endl;
+    this->posicao = posicao;
+    cout << this->posicao[0] << endl;
+    cout << this->posicao[1] << endl;
 }
 
 bool Drone::Takeoff(){
